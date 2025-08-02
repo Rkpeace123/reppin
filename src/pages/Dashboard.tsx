@@ -29,7 +29,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 flex">
       <DashboardSidebar 
         activeTab={activeTab} 
         setActiveTab={setActiveTab}
@@ -37,12 +37,12 @@ const Dashboard = () => {
         setSidebarOpen={setSidebarOpen}
       />
       
-      <div className="flex-1 lg:ml-64">
+      <div className="flex-1 lg:ml-72">
         <motion.main
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="p-6"
+          className="p-8"
         >
           {renderContent()}
         </motion.main>

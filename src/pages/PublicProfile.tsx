@@ -83,62 +83,62 @@ const PublicProfile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+      <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 shadow-xl">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
             <img
               src={profile.avatar}
               alt={profile.name}
-              className="w-24 h-24 rounded-full object-cover"
+              className="w-32 h-32 rounded-full object-cover shadow-2xl border-4 border-white dark:border-gray-700"
             />
             
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              <h1 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 tracking-tight">
                 {profile.name}
               </h1>
-              <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-2xl">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-3xl text-lg leading-relaxed">
                 {profile.bio}
               </p>
               
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
-                <div className="flex items-center gap-1">
-                  <MapPin className="w-4 h-4" />
+              <div className="flex flex-wrap items-center gap-6 text-gray-500 dark:text-gray-400 mb-6">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5" />
                   {profile.location}
                 </div>
-                <div className="flex items-center gap-1">
-                  <GraduationCap className="w-4 h-4" />
+                <div className="flex items-center gap-2">
+                  <GraduationCap className="w-5 h-5" />
                   {profile.university}
                 </div>
-                <div className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-5 h-5" />
                   Joined {new Date(profile.joinedDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 </div>
               </div>
               
-              <div className="flex gap-3">
+              <div className="flex gap-4">
                 <a
                   href={profile.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors"
+                  className="p-4 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="w-6 h-6" />
                 </a>
                 <a
                   href={profile.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="p-4 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
                 >
-                  <Github className="w-5 h-5" />
+                  <Github className="w-6 h-6" />
                 </a>
                 <a
                   href={`mailto:${profile.social.email}`}
-                  className="p-2 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors"
+                  className="p-4 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-xl hover:bg-green-200 dark:hover:bg-green-900/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
                 >
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-6 h-6" />
                 </a>
               </div>
             </div>
@@ -147,9 +147,9 @@ const PublicProfile = () => {
       </div>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {categories.map((category) => {
             const count = experiences.filter(exp => exp.category === category.id).length;
             const Icon = category.icon;
@@ -160,15 +160,16 @@ const PublicProfile = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white dark:bg-gray-800 rounded-xl p-6 text-center border border-gray-200 dark:border-gray-700"
+                whileHover={{ y: -8, scale: 1.05 }}
+                className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl p-8 text-center border border-gray-200/50 dark:border-gray-700/50 shadow-xl hover:shadow-2xl transition-all duration-500"
               >
-                <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center mx-auto mb-3`}>
-                  <Icon className="w-6 h-6 text-white" />
+                <div className={`w-16 h-16 bg-gradient-to-r ${category.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}>
+                  <Icon className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+                <div className="text-3xl font-black text-gray-900 dark:text-white mb-2">
                   {count}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">
+                <div className="text-gray-600 dark:text-gray-300 font-medium">
                   {category.name}
                 </div>
               </motion.div>
@@ -177,10 +178,10 @@ const PublicProfile = () => {
         </div>
 
         {/* Experiences */}
-        <div className="space-y-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Experiences</h2>
+        <div className="space-y-12">
+          <h2 className="text-3xl lg:text-4xl font-black text-gray-900 dark:text-white tracking-tight">Experiences</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {experiences.map((experience, index) => {
               const Icon = getCategoryIcon(experience.category);
               const colorClass = getCategoryColor(experience.category);
@@ -191,50 +192,51 @@ const PublicProfile = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 group"
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 hover:shadow-2xl transition-all duration-500 group"
                 >
                   <div className="relative overflow-hidden">
                     <img
                       src={experience.image}
                       alt={experience.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 left-4">
-                      <div className={`w-10 h-10 bg-gradient-to-r ${colorClass} rounded-lg flex items-center justify-center`}>
-                        <Icon className="w-5 h-5 text-white" />
+                    <div className="absolute top-6 left-6">
+                      <div className={`w-12 h-12 bg-gradient-to-r ${colorClass} rounded-xl flex items-center justify-center shadow-xl`}>
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
                     </div>
                   </div>
                   
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-3">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <div className="p-8">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
                         {experience.title}
                       </h3>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                      <span className="text-gray-500 dark:text-gray-400 font-medium">
                         {new Date(experience.date).toLocaleDateString()}
                       </span>
                     </div>
                     
-                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                       {experience.description}
                     </p>
                     
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-3 mb-6">
                       {experience.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs rounded-full"
+                          className="px-3 py-2 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-600 dark:text-gray-300 text-sm rounded-full font-medium shadow-sm"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
                     
-                    <div className="space-y-1">
+                    <div className="space-y-2">
                       {experience.achievements.map((achievement, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                          <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
+                        <div key={idx} className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                          <div className="w-2 h-2 bg-indigo-500 rounded-full shadow-sm"></div>
                           {achievement}
                         </div>
                       ))}
@@ -251,19 +253,28 @@ const PublicProfile = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 text-center bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl p-8 text-white"
+          className="mt-20 text-center bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden"
         >
-          <h3 className="text-2xl font-bold mb-4">Create Your Own Portfolio</h3>
-          <p className="text-indigo-100 mb-6 max-w-2xl mx-auto">
+          {/* Background decoration */}
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="absolute top-0 left-0 w-full h-full">
+            <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+            <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
+          </div>
+          
+          <div className="relative">
+            <h3 className="text-3xl lg:text-4xl font-black mb-6 tracking-tight">Create Your Own Portfolio</h3>
+            <p className="text-indigo-100 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
             Start journaling your experiences and let AI build your professional portfolio automatically.
           </p>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 bg-white text-indigo-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center gap-3 bg-white text-indigo-600 px-10 py-5 rounded-2xl font-black hover:bg-gray-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 text-lg"
           >
             Get Started Free
-            <ExternalLink className="w-5 h-5" />
+              <ExternalLink className="w-6 h-6" />
           </Link>
+          </div>
         </motion.div>
       </div>
     </div>
