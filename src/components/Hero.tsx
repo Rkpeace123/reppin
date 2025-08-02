@@ -15,7 +15,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl sm:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Turn your daily wins — hackathons, workshops, internships — into a portfolio that evolves with you.
+            Turn your daily wins-hackathons, workshops, internships-into a portfolio that evolves with you.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
