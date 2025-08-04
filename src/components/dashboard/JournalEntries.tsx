@@ -51,7 +51,7 @@ const JournalEntries = () => {
           <input
             value={newEntry.title}
             onChange={(e) => setNewEntry({ ...newEntry, title: e.target.value })}
-            placeholder="Title (e.g., "Attended React Meetup")"
+            placeholder="Title (e.g., \"Attended React Meetup\")"
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <textarea
