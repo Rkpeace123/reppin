@@ -49,7 +49,7 @@ const JournalEntries = () => {
     };
 
     try {
-      const res = await fetch("https://n8n.yourdomain.com/webhook/reppin/new-entry", {
+      const res = await fetch("https://becoming-ferret-informally.ngrok-free.app/webhook-test/Journal", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
